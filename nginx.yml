@@ -47,7 +47,10 @@ metadata:
   namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: "/"
+    # Aşağıdaki satır eski Kubernetes versiyonları için geçerlidir.
+    kubernetes.io/ingress.class: "nginx"
 spec:
+  ingressClassName: nginx # Bu satır Kubernetes 1.18 ve sonrası için gereklidir.
   rules:
   - host: "nginx.yekcan.com"
     http:
